@@ -1,4 +1,4 @@
-package com.xiesangzi.gacourse.base;
+package com.xiesangzi.gacourse.core;
 
 /**
  * Simple course courseName abstraction, which defines the Professors teaching the courseName.

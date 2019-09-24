@@ -1,4 +1,4 @@
-package com.xiesangzi.gacourse.base;
+package com.xiesangzi.gacourse.core;
 
 /**
  * A simple class abstraction -- basically a container for class, group, module, professor, timeslot, and room IDs

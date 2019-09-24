@@ -1,4 +1,4 @@
-package com.xiesangzi.gacourse.base;
+package com.xiesangzi.gacourse.core;
 
 /**
  * A simple "group-of-students" abstraction. Defines the modules that the group is enrolled in.

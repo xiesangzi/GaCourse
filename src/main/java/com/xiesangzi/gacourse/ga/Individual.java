@@ -1,8 +1,8 @@
 package com.xiesangzi.gacourse.ga;
 
 
-import com.xiesangzi.gacourse.base.Clazz;
-import com.xiesangzi.gacourse.base.Course;
+import com.xiesangzi.gacourse.core.Clazz;
+import com.xiesangzi.gacourse.core.Course;
 
 /**
  * 功能描述：个体
