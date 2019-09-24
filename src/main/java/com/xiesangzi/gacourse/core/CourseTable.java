@@ -1,7 +1,7 @@
 package com.xiesangzi.gacourse.core;
 
 /**
- * A simple class abstraction -- basically a container for class, group, module, professor, timeslot, and room IDs
+ * A simple class abstraction -- basically a container for class, clazz, module, teacher, timeslot, and room IDs
  */
 public class CourseTable {
     private final int tableId;
@@ -25,7 +25,7 @@ public class CourseTable {
     }
     
     /**
-     * Add professor to class
+     * Add teacher to class
      * 
      * @param teacherId
      */

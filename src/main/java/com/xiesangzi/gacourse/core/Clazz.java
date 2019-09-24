@@ -1,7 +1,7 @@
 package com.xiesangzi.gacourse.core;
 
 /**
- * A simple "group-of-students" abstraction. Defines the modules that the group is enrolled in.
+ * A simple "clazz-of-students" abstraction. Defines the modules that the clazz is enrolled in.
  * 定义学生分组信息
  */
 public class Clazz {
@@ -49,7 +49,7 @@ public class Clazz {
     }
 
     /**
-     * Get array of group's courseIds
+     * Get array of clazz's courseIds
      *
      * @return courseIds
      */

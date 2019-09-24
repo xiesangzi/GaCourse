@@ -1,6 +1,6 @@
 package com.xiesangzi.gacourse.core;
 /**
- * Simple Professor abstraction.
+ * Simple teacher abstraction.
  * 教师信息
  */
 public class Teacher {
@@ -8,7 +8,7 @@ public class Teacher {
     private final String teacherName;
 
     /**
-     * Initalize new Professor
+     * Initalize new teacher
      * 
      * @param teacherId The ID for this teacher
      * @param teacherName The name of this teacher
@@ -28,7 +28,7 @@ public class Teacher {
     }
     
     /**
-     * Get professor's name
+     * Get teacher's name
      * 
      * @return teacherName
      */

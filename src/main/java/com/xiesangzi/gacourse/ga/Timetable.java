@@ -36,7 +36,7 @@ public class Timetable {
     private final HashMap<Integer, Room> rooms;
     private final HashMap<Integer, Teacher> teachers;
     private final HashMap<Integer, Course> courses;
-    private final HashMap<Integer, Clazz> groups;
+    private final HashMap<Integer, Clazz> clazzes;
     private final HashMap<Integer, TimesLot> times;
     private CourseTable[] courseTables;
 
@@ -49,7 +49,7 @@ public class Timetable {
         this.rooms = new HashMap<Integer, Room>();
         this.teachers = new HashMap<Integer, Teacher>();
         this.courses = new HashMap<Integer, Course>();
-        this.groups = new HashMap<Integer, Clazz>();
+        this.clazzes = new HashMap<Integer, Clazz>();
         this.times = new HashMap<Integer, TimesLot>();
     }
 
@@ -69,12 +69,12 @@ public class Timetable {
         this.rooms = cloneable.getRooms();
         this.teachers = cloneable.getTeachers();
         this.courses = cloneable.getCourses();
-        this.groups = cloneable.getGroups();
+        this.clazzes = cloneable.getClazzes();
         this.times = cloneable.getTimes();
     }
 
-    private HashMap<Integer, Clazz> getGroups() {
-        return this.groups;
+    private HashMap<Integer, Clazz> getClazzes() {
+        return this.clazzes;
     }
 
     private HashMap<Integer, TimesLot> getTimes() {
@@ -101,7 +101,7 @@ public class Timetable {
     }
 
     /**
-     * Add new professor
+     * Add new teacher
      *
      * @param teacherId
      * @param teacherName
@@ -123,7 +123,7 @@ public class Timetable {
     }
 
     /**
-     * Add new group
+     * Add new Clazz
      *
      * @param clazzId
      * @param clazzName
@@ -131,7 +131,7 @@ public class Timetable {
      * @param courseIds
      */
     public void addClazz(int clazzId, String clazzName, int numSize, int[] courseIds) {
-        this.groups.put(clazzId, new Clazz(clazzId, clazzName, numSize, courseIds));
+        this.clazzes.put(clazzId, new Clazz(clazzId, clazzName, numSize, courseIds));
         this.numClazzes = 0;
     }
 
@@ -168,7 +168,7 @@ public class Timetable {
         int chromosomePos = 0;
         int classIndex = 0;
 
-        for (Clazz clazz : this.getGroupsAsArray()) {
+        for (Clazz clazz : this.getClazzesAsArray()) {
             int[] moduleIds = clazz.getCourseIds();
             for (int moduleId : moduleIds) {
                 classes[classIndex] = new CourseTable(classIndex, clazz.getClazzId(), moduleId);
@@ -181,7 +181,7 @@ public class Timetable {
                 classes[classIndex].setRoomId(chromosome[chromosomePos]);
                 chromosomePos++;
 
-                // Add professor
+                // Add teacher
                 classes[classIndex].addTeacher(chromosome[chromosomePos]);
                 chromosomePos++;
 
@@ -221,13 +221,13 @@ public class Timetable {
     }
 
     /**
-     * Get professor from professorId
+     * Get teacher from teacherId
      *
-     * @param professorId
+     * @param teacherId
      * @return teacher
      */
-    public Teacher getProfessor(int professorId) {
-        return (Teacher) this.teachers.get(professorId);
+    public Teacher getTeacher(int teacherId) {
+        return (Teacher) this.teachers.get(teacherId);
     }
 
     /**
@@ -241,33 +241,33 @@ public class Timetable {
     }
 
     /**
-     * Get moduleIds of student group
+     * Get moduleIds of student clazz
      *
-     * @param groupId
+     * @param clazzId
      * @return courseId array
      */
-    public int[] getGroupCourses(int groupId) {
-        Clazz clazz = (Clazz) this.groups.get(groupId);
+    public int[] getClazzCourses(int clazzId) {
+        Clazz clazz = (Clazz) this.clazzes.get(clazzId);
         return clazz.getCourseIds();
     }
 
     /**
-     * Get group from groupId
+     * Get clazz from clazzId
      *
-     * @param groupId
-     * @return group
+     * @param clazzId
+     * @return clazz
      */
-    public Clazz getName(int groupId) {
-        return (Clazz) this.groups.get(groupId);
+    public Clazz getClazz(int clazzId) {
+        return (Clazz) this.clazzes.get(clazzId);
     }
 
     /**
-     * Get all student groups
+     * Get all student clazzes
      *
-     * @return array of groups
+     * @return array of clazzes
      */
-    public Clazz[] getGroupsAsArray() {
-        return (Clazz[]) this.groups.values().toArray(new Clazz[this.groups.size()]);
+    public Clazz[] getClazzesAsArray() {
+        return (Clazz[]) this.clazzes.values().toArray(new Clazz[this.clazzes.size()]);
     }
 
     /**
@@ -311,7 +311,7 @@ public class Timetable {
         }
 
         int numClasses = 0;
-        Clazz[] clazzes = (Clazz[]) this.groups.values().toArray(new Clazz[this.groups.size()]);
+        Clazz[] clazzes = (Clazz[]) this.clazzes.values().toArray(new Clazz[this.clazzes.size()]);
         for (Clazz clazz : clazzes) {
             numClasses += clazz.getCourseIds().length;
         }
@@ -348,9 +348,9 @@ public class Timetable {
         for (CourseTable classA : this.courseTables) {
             // Check room capacity
             int roomCapacity = this.getRoom(classA.getRoomId()).getRoomCapacity();
-            int groupSize = this.getName(classA.getClazzId()).getNumSize();
+            int clazzSize = this.getClazz(classA.getClazzId()).getNumSize();
 
-            if (roomCapacity < groupSize) {
+            if (roomCapacity < clazzSize) {
                 clashes++;
             }
 
@@ -363,7 +363,7 @@ public class Timetable {
                 }
             }
 
-            // Check if professor is available
+            // Check if teacher is available
             for (CourseTable classB : this.courseTables) {
                 if (classA.getTeacherId() == classB.getTeacherId() && classA.getTimeId() == classB.getTimeId()
                         && classA.getTableId() != classB.getTableId()) {

@@ -14,16 +14,16 @@ import com.xiesangzi.gacourse.core.CourseTable;
  * valid version of -- meaning, after all is said and done, a chromosome is read
  * into a Timetable class, and the Timetable class creates a nicer, neater
  * representation of the chromosome by turning it into a proper list of Classes
- * with rooms and professors and whatnot.
+ * with rooms and teachers and whatnot.
  *
  * The Timetable class also understands the problem's Hard Constraints (ie, a
- * professor can't be in two places simultaneously, or a room can't be used by
+ * teacher can't be in two places simultaneously, or a room can't be used by
  * two classes simultaneously), and so is used by the GeneticAlgorithm's
  * calcFitness class as well.
  *
  * Finally, we overload the Timetable class by entrusting it with the
  * "database information" generated here in initializeTimetable. Normally, that
- * information about what professors are employed and which classrooms the
+ * information about what teachers are employed and which classrooms the
  * university has would come from a database, but this isn't a book about
  * databases so we hardcode it.
  *
@@ -83,11 +83,11 @@ public class TimetableGA {
             System.out.println("课程: " +
                     timetable.getCourse(bestClass.getCourseId()).getCourseName());
             System.out.println("班级: " +
-                    timetable.getName(bestClass.getClazzId()).getClazzName());
+                    timetable.getClazz(bestClass.getClazzId()).getClazzName());
             System.out.println("教室: " +
                     timetable.getRoom(bestClass.getRoomId()).getRoomNumber());
             System.out.println("教师: " +
-                    timetable.getProfessor(bestClass.getTeacherId()).getTeacherName());
+                    timetable.getTeacher(bestClass.getTeacherId()).getTeacherName());
             System.out.println("时段: " +
                     timetable.getTimesLot(bestClass.getTimeId()).getTimeName());
             System.out.println("-----");

@@ -26,17 +26,17 @@ public class Individual {
 	 * Initializes random individual based on a timetable
 	 * 
 	 * The Timetable class is a bit overloaded. It knows both fixed information
-	 * (the courses that MUST be scheduled, the professors that MUST be given
+	 * (the courses that MUST be scheduled, the teachers that MUST be given
 	 * jobs, the classrooms that DO exist) -- but it also understands how to
 	 * parse and unpack chromosomes which contain variable information (which
-	 * professor teaches which class and when?)
+	 * teacher teaches which class and when?)
 	 * 
 	 * In this case, we use the Timetable for the fixed information only, and
 	 * generate a random chromosome, making guesses at the variable information.
 	 * 
 	 * Given the fixed information in a Timetable, we create a chromosome that
-	 * randomly assigns timeslots, rooms, and professors to the chromosome for
-	 * each student group and module.
+	 * randomly assigns timeslots, rooms, and teachers to the chromosome for
+	 * each student clazz and module.
 	 * 
 	 * @param timetable
 	 *            The timetable information
@@ -44,13 +44,13 @@ public class Individual {
 	public Individual(Timetable timetable) {
 		int numClasses = timetable.getNumClazzes();
 
-		// 1 gene for room, 1 for time, 1 for professor
+		// 1 gene for room, 1 for time, 1 for teacher
 		int chromosomeLength = numClasses * 3;
 		// Create random individual
 		int[] newChromosome = new int[chromosomeLength];
 		int chromosomeIndex = 0;
-		// Loop through groups
-		for (Clazz clazz : timetable.getGroupsAsArray()) {
+		// Loop through clazzs
+		for (Clazz clazz : timetable.getClazzesAsArray()) {
 			// Loop through modules
 			for (int moduleId : clazz.getCourseIds()) {
 				// Add random time
@@ -63,7 +63,7 @@ public class Individual {
 				newChromosome[chromosomeIndex] = roomId;
 				chromosomeIndex++;
 
-				// Add random professor
+				// Add random teacher
 				Course module = timetable.getCourse(moduleId);
 				newChromosome[chromosomeIndex] = module.getRandomTeacherId();
 				chromosomeIndex++;

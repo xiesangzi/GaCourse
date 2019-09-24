@@ -1,7 +1,7 @@
 package com.xiesangzi.gacourse.core;
 
 /**
- * Simple course courseName abstraction, which defines the Professors teaching the courseName.
+ * Simple course courseName abstraction, which defines the teachers teaching the courseName.
  * 定义教师授课情况
  */
 public class Course {
@@ -55,10 +55,10 @@ public class Course {
     /**
      * Get random teacherId Id
      * 
-     * @return professorId
+     * @return teacherId
      */
     public int getRandomTeacherId(){
-        int professorId = teacherIds[(int) (teacherIds.length * Math.random())];
-        return professorId;
+        int teacherId = teacherIds[(int) (teacherIds.length * Math.random())];
+        return teacherId;
     }
 }
