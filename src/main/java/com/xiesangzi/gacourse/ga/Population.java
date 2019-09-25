@@ -149,6 +149,7 @@ public class Population {
 
 	/**
 	 * Shuffles the population in-place
+	 * 调整种群结构
 	 * @return void
 	 */
 	public void shuffle() {

@@ -48,19 +48,18 @@ public class TimetableGA {
         // Keep track of current generation
         int generation = 1;
 
-        // Start evolution loop
-        while (ga.isTerminationConditionMet(generation, 1000) == false
-                && ga.isTerminationConditionMet(population) == false) {
-            // Print fitness
-            System.out.println("G" + generation + " Best fitness: " + population.getFittest(0).getFitness());
+        // Start evolution loop，
+        // 如果有冲突进行交叉、变异
+        // 逐代进化
+        while (!ga.isTerminationConditionMet(generation, 1000) && !ga.isTerminationConditionMet(population)) {
 
-            // Apply crossover
+            // Apply crossover 交叉
             population = ga.crossoverPopulation(population);
 
-            // Apply mutation
+            // Apply mutation 变异
             population = ga.mutatePopulation(population, timetable);
 
-            // Evaluate population
+            // Evaluate population 种群进化
             ga.evalPopulation(population, timetable);
 
             // Increment the current generation

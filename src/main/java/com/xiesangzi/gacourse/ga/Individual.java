@@ -52,7 +52,7 @@ public class Individual {
 		// Loop through clazzs
 		for (Clazz clazz : timetable.getClazzesAsArray()) {
 			// Loop through modules
-			for (int moduleId : clazz.getCourseIds()) {
+			for (int courseId : clazz.getCourseIds()) {
 				// Add random time
 				int timeslotId = timetable.getRandomTimesLot().getTimeId();
 				newChromosome[chromosomeIndex] = timeslotId;
@@ -64,7 +64,7 @@ public class Individual {
 				chromosomeIndex++;
 
 				// Add random teacher
-				Course module = timetable.getCourse(moduleId);
+				Course module = timetable.getCourse(courseId);
 				newChromosome[chromosomeIndex] = module.getRandomTeacherId();
 				chromosomeIndex++;
 			}

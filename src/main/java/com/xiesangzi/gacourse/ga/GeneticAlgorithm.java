@@ -6,7 +6,9 @@ public class GeneticAlgorithm {
     private int populationSize;
     private double mutationRate;
     private double crossoverRate;
+    /**精英计数**/
     private int elitismCount;
+    /**锦标赛规模**/
     protected int tournamentSize;
 
     public GeneticAlgorithm(int populationSize, double mutationRate, double crossoverRate, int elitismCount, int tournamentSize) {
@@ -70,6 +72,7 @@ public class GeneticAlgorithm {
         int clashes = threadTimetable.calcClashes();
         double fitness = 1 / (double) (clashes + 1);
 
+        //如果没有冲突 适应度为1.0
         individual.setFitness(fitness);
 
         return fitness;
@@ -168,6 +171,7 @@ public class GeneticAlgorithm {
 
         // Loop over current population by fitness
         for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
+            //获取适应度最高的一个个体
             Individual parent1 = population.getFittest(populationIndex);
 
             // Apply crossover to this individual?
