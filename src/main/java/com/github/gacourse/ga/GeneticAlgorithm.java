@@ -135,6 +135,7 @@ public class GeneticAlgorithm {
 
         // Loop over current population by fitness
         for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
+            //获取适应度最高的个体
             Individual individual = population.getFittest(populationIndex);
 
             // Create random individual to swap genes with
@@ -172,7 +173,7 @@ public class GeneticAlgorithm {
 
         // Loop over current population by fitness
         for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
-            //获取适应度最高的一个个体
+            //获取适应度最高的个体
             Individual parent1 = population.getFittest(populationIndex);
 
             // Apply crossover to this individual?
@@ -186,6 +187,7 @@ public class GeneticAlgorithm {
                 // Loop over genome
                 for (int geneIndex = 0; geneIndex < parent1.getChromosomeLength(); geneIndex++) {
                     // Use half of parent1's genes and half of parent2's genes
+                    //交叉遗传概率为1/2
                     if (0.5 > Math.random()) {
                         offspring.setGene(geneIndex, parent1.getGene(geneIndex));
                     } else {
@@ -193,16 +195,14 @@ public class GeneticAlgorithm {
                     }
                 }
 
-                // Add offspring to new population
+                // Add offspring to new population 替换当前个体为交叉后的新个体
                 newPopulation.setIndividual(populationIndex, offspring);
             } else {
                 // Add individual to new population without applying crossover
+                // 如果没有发生交叉遗传保持不变
                 newPopulation.setIndividual(populationIndex, parent1);
             }
         }
-
         return newPopulation;
     }
-
-
 }
