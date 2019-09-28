@@ -1,4 +1,4 @@
-package com.xiesangzi.gacourse.core;
+package com.github.gacourse.core;
 /**
  * Simple teacher abstraction.
  * 教师信息

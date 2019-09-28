@@ -1,8 +1,8 @@
-package com.xiesangzi.gacourse.ga;
+package com.github.gacourse.ga;
 
 
-import com.xiesangzi.gacourse.core.Clazz;
-import com.xiesangzi.gacourse.core.Course;
+import com.github.gacourse.core.Clazz;
+import com.github.gacourse.core.Course;
 
 /**
  * 功能描述：个体

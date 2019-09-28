@@ -1,4 +1,4 @@
-package com.xiesangzi.gacourse.ga;
+package com.github.gacourse.ga;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;

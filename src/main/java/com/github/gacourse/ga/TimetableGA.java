@@ -1,7 +1,7 @@
-package com.xiesangzi.gacourse.ga;
+package com.github.gacourse.ga;
 
 
-import com.xiesangzi.gacourse.core.CourseTable;
+import com.github.gacourse.core.CourseTable;
 
 /**
  * Don't be daunted by the number of classes in this chapter -- most of them are

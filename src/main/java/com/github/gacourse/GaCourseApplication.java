@@ -1,4 +1,4 @@
-package com.xiesangzi.gacourse;
+package com.github.gacourse;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

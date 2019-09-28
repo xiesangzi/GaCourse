@@ -1,4 +1,4 @@
-package com.xiesangzi.gacourse.core;
+package com.github.gacourse.core;
 
 /**
  * Simple course courseName abstraction, which defines the teachers teaching the courseName.

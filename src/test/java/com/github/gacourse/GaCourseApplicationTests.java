@@ -1,4 +1,4 @@
-package com.xiesangzi.gacourse;
+package com.github.gacourse;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.xiesangzi.gacourse.core;
+package com.github.gacourse.core;
 /**
  * Simple timeName abstraction -- just represents a timeName (like "Wed 9:00am-11:00am").
  *  时段表示班级上课在周几的什么时间

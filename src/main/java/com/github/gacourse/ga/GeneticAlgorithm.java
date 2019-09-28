@@ -1,4 +1,4 @@
-package com.xiesangzi.gacourse.ga;
+package com.github.gacourse.ga;
 
 
 public class GeneticAlgorithm {

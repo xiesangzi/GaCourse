@@ -1,4 +1,4 @@
-package com.xiesangzi.gacourse.core;
+package com.github.gacourse.core;
 
 /**
  * Simple Room abstraction -- used to store the room capacity and compare against the student Clazz's size.

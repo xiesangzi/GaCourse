@@ -1,12 +1,12 @@
-package com.xiesangzi.gacourse.ga;
+package com.github.gacourse.ga;
 
 
-import com.xiesangzi.gacourse.core.Clazz;
-import com.xiesangzi.gacourse.core.Course;
-import com.xiesangzi.gacourse.core.CourseTable;
-import com.xiesangzi.gacourse.core.Room;
-import com.xiesangzi.gacourse.core.Teacher;
-import com.xiesangzi.gacourse.core.TimesLot;
+import com.github.gacourse.core.Clazz;
+import com.github.gacourse.core.Course;
+import com.github.gacourse.core.CourseTable;
+import com.github.gacourse.core.Room;
+import com.github.gacourse.core.Teacher;
+import com.github.gacourse.core.TimesLot;
 
 import java.util.HashMap;
 

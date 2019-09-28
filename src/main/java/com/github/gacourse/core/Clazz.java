@@ -1,4 +1,4 @@
-package com.xiesangzi.gacourse.core;
+package com.github.gacourse.core;
 
 /**
  * A simple "clazz-of-students" abstraction. Defines the modules that the clazz is enrolled in.
