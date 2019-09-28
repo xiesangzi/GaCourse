@@ -55,8 +55,8 @@ public class Individual {
 			// Loop through modules
 			for (int courseId : clazz.getCourseIds()) {
 				// Add random time
-				int timeslotId = timetable.getRandomTimesLot().getTimeId();
-				newChromosome[chromosomeIndex] = timeslotId;
+				int timesLotId = timetable.getRandomTimesLot().getTimeId();
+				newChromosome[chromosomeIndex] = timesLotId;
 				chromosomeIndex++;
 
 				// Add random room
