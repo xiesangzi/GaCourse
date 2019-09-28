@@ -36,9 +36,9 @@ public class Population {
 
 		// Loop over population size
 		for (int individualCount = 0; individualCount < populationSize; individualCount++) {
-			// Create individual
+			// Create individual 生成个体
 			Individual individual = new Individual(timetable);
-			// Add individual to population
+			// Add individual to population 添加个体到种群
 			this.population[individualCount] = individual;
 		}
 	}

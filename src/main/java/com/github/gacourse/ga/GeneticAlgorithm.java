@@ -22,7 +22,7 @@ public class GeneticAlgorithm {
 
     /**
      * Initialize population
-     *
+     *  初始化种群
      * @param timetable
      * @return population The initial population generated
      */
@@ -34,7 +34,7 @@ public class GeneticAlgorithm {
 
     /**
      * Check if population has met termination condition
-     *
+     * 判断进化代数是否已达到最大进化代数
      * @param generationsCount
      *            Number of generations passed
      * @param maxGenerations
@@ -47,7 +47,7 @@ public class GeneticAlgorithm {
 
     /**
      * Check if population has met termination condition
-     *
+     * 判断进化是否满足终止条件
      * @param population
      * @return boolean True if termination condition met, otherwise, false
      */
@@ -57,7 +57,7 @@ public class GeneticAlgorithm {
 
     /**
      * Calculate individual's fitness value
-     *
+     *  计算个体的适应度值
      * @param individual
      * @param timetable
      * @return fitness
@@ -66,10 +66,12 @@ public class GeneticAlgorithm {
 
         // Create new timetable object to use -- cloned from an existing timetable
         Timetable threadTimetable = new Timetable(timetable);
+        //生成一个随机组合的课表单，包括班级，课程，随机时段，随机教室，随机授课教师（同一课程可能有多个教师授课，所以随机选择一个教师）
         threadTimetable.createClazzes(individual);
 
-        // Calculate fitness
+        //计算当前课表冲突数量
         int clashes = threadTimetable.calcClashes();
+        // Calculate fitness 计算适应度
         double fitness = 1 / (double) (clashes + 1);
 
         //如果没有冲突 适应度为1.0

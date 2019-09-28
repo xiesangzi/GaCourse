@@ -44,7 +44,7 @@ public class TimetableGA {
         Population population = ga.initPopulation(timetable);
 
         // Evaluate population
-        // 进化种群
+        // 评估种群，计算种群适应度
         ga.evalPopulation(population, timetable);
 
         // Keep track of current generation
@@ -61,7 +61,7 @@ public class TimetableGA {
             // Apply mutation 变异
             population = ga.mutatePopulation(population, timetable);
 
-            // Evaluate population 种群进化
+            // Evaluate population 评估种群
             ga.evalPopulation(population, timetable);
 
             // Increment the current generation
