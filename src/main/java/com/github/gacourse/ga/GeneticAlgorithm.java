@@ -111,9 +111,9 @@ public class GeneticAlgorithm {
         Population tournament = new Population(this.tournamentSize);
 
         // Add random individuals to the tournament
-        // 随机打乱群众次序
+        // 随机打乱种群次序
         population.shuffle();
-        // 选择锦标赛淘汰后的小群体
+        // 选择锦标赛淘汰后的小种群
         for (int i = 0; i < this.tournamentSize; i++) {
             Individual tournamentIndividual = population.getIndividual(i);
             tournament.setIndividual(i, tournamentIndividual);
