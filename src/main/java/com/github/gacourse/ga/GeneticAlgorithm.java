@@ -99,7 +99,7 @@ public class GeneticAlgorithm {
 
     /**
      * Selects parent for crossover using tournament selection
-     *
+     * 控制竞标值
      * Tournament selection works by choosing N random individuals, and then
      * choosing the best of those.
      *
@@ -111,13 +111,16 @@ public class GeneticAlgorithm {
         Population tournament = new Population(this.tournamentSize);
 
         // Add random individuals to the tournament
+        // 随机打乱群众次序
         population.shuffle();
+        // 选择锦标赛淘汰后的小群体
         for (int i = 0; i < this.tournamentSize; i++) {
             Individual tournamentIndividual = population.getIndividual(i);
             tournament.setIndividual(i, tournamentIndividual);
         }
 
         // Return the best
+        //获取最终竞争成功的个体
         return tournament.getFittest(0);
     }
 
@@ -146,14 +149,17 @@ public class GeneticAlgorithm {
                 // Skip mutation if this is an elite individual
                 if (populationIndex > this.elitismCount) {
                     // Does this gene need mutation?
+                    // 如果发生基因突变
                     if (this.mutationRate > Math.random()) {
                         // Swap for new gene
+                        // 替换染色体
                         individual.setGene(geneIndex, randomIndividual.getGene(geneIndex));
                     }
                 }
             }
 
             // Add individual to population
+            // 更新个体
             newPopulation.setIndividual(populationIndex, individual);
         }
 
