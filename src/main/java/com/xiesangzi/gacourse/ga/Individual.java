@@ -45,6 +45,7 @@ public class Individual {
 		int numClasses = timetable.getNumClazzes();
 
 		// 1 gene for room, 1 for time, 1 for teacher
+		//3 指每组染色体都添加timeId，roomId,courseId
 		int chromosomeLength = numClasses * 3;
 		// Create random individual
 		int[] newChromosome = new int[chromosomeLength];

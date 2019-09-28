@@ -40,19 +40,21 @@ public class TimetableGA {
         GeneticAlgorithm ga = new GeneticAlgorithm(100, 0.01, 0.9, 2, 5);
 
         // Initialize population
+        //初始化种群,随机生成班级，课程，教师，教室，节次组成的课表
         Population population = ga.initPopulation(timetable);
 
         // Evaluate population
+        // 进化种群
         ga.evalPopulation(population, timetable);
 
         // Keep track of current generation
+        //跟踪代数
         int generation = 1;
 
         // Start evolution loop，
         // 如果有冲突进行交叉、变异
         // 逐代进化
         while (!ga.isTerminationConditionMet(generation, 1000) && !ga.isTerminationConditionMet(population)) {
-
             // Apply crossover 交叉
             population = ga.crossoverPopulation(population);
 

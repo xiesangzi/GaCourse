@@ -87,12 +87,11 @@ public class GeneticAlgorithm {
     public void evalPopulation(Population population, Timetable timetable) {
         double populationFitness = 0;
 
-        // Loop over population evaluating individuals and summing population
-        // fitness
+        // Loop over population evaluating individuals and summing population fitness
         for (Individual individual : population.getIndividuals()) {
+            //计算种群适应度，即所有个体在种群中的适应度之和
             populationFitness += this.calcFitness(individual, timetable);
         }
-
         population.setPopulationFitness(populationFitness);
     }
 
