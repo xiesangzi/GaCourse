@@ -11,6 +11,6 @@ public class GaCourseApplicationTests {
 
     @Test
     public void contextLoads() {
-    }
 
+    }
 }
