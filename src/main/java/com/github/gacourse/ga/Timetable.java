@@ -166,26 +166,26 @@ public class Timetable {
         // Get individual's chromosome
         int[] chromosome = individual.getChromosome();
         int chromosomePos = 0;
-        int classIndex = 0;
+        int courseIndex = 0;
 
         for (Clazz clazz : this.getClazzesAsArray()) {
             int[] courseIds = clazz.getCourseIds();
             for (int courseId : courseIds) {
-                tables[classIndex] = new CourseTable(classIndex, clazz.getClazzId(), courseId);
+                tables[courseIndex] = new CourseTable(courseIndex, clazz.getClazzId(), courseId);
 
                 // Add timeslot
-                tables[classIndex].addTimeId(chromosome[chromosomePos]);
+                tables[courseIndex].addTimeId(chromosome[chromosomePos]);
                 chromosomePos++;
 
                 // Add room
-                tables[classIndex].setRoomId(chromosome[chromosomePos]);
+                tables[courseIndex].setRoomId(chromosome[chromosomePos]);
                 chromosomePos++;
 
                 // Add teacher
-                tables[classIndex].addTeacher(chromosome[chromosomePos]);
+                tables[courseIndex].addTeacher(chromosome[chromosomePos]);
                 chromosomePos++;
 
-                classIndex++;
+                courseIndex++;
             }
         }
 

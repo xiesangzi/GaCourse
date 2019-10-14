@@ -185,6 +185,7 @@ public class GeneticAlgorithm {
             // Apply crossover to this individual?
             if (this.crossoverRate > Math.random() && populationIndex >= this.elitismCount) {
                 // Initialize offspring
+                // 创建一个新染色体
                 Individual offspring = new Individual(parent1.getChromosomeLength());
 
                 // Find second parent
